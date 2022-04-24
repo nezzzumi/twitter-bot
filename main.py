@@ -32,7 +32,7 @@ while True:
     api = tweepy.API(auth)
     actual_description = api.update_profile().description
 
-    if re.search(r'listening to:.*', actual_description):
+    if re.search(r'listening to.*', actual_description):
         new_description = re.sub(r'listening to.*', 'listening to '+actual_track, actual_description)
     else:
         new_description = actual_description.strip() + '\nlistening to ' + actual_track
