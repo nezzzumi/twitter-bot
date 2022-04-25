@@ -25,9 +25,16 @@ auth = tweepy.OAuth1UserHandler(os.getenv('TWITTER_CONSUMER_KEY'), os.getenv('TW
                                 os.getenv('TWITTER_ACCESS_TOKEN'), os.getenv('TWITTER_ACCESS_TOKEN_SECRET'))
 api = tweepy.API(auth)
 
+last_track = ''
+
 while True:
-    actual_track = get_current_song(
-        os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
+    actual_track = get_current_song(os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
+    
+    if actual_track == last_track:
+        continue
+
+    last_track = actual_track
+
     actual_description = api.update_profile().description
 
     if not actual_track:
