@@ -28,7 +28,11 @@ api = tweepy.API(auth)
 last_track = ''
 
 while True:
-    actual_track = get_current_song(os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
+    try:
+        actual_track = get_current_song(os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
+    except Exception as e:
+        print(e)
+        continue
     
     if actual_track == last_track:
         continue
