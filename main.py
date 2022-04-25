@@ -31,7 +31,7 @@ while True:
     try:
         actual_track = get_current_song(os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
     except Exception as e:
-        print(e)
+        print('Erro ao buscar música atual: ', e)
         continue
     
     if actual_track == last_track:
@@ -55,7 +55,10 @@ while True:
                 r'listening to.*', 'listening to '+actual_track, actual_description)
         else:
             new_description = actual_description.strip() + '\n\nlistening to ' + actual_track
-
-    api.update_profile(description=new_description)
+    try:
+        api.update_profile(description=new_description)
+    except Exception as e:
+        print('Erro ao atualizar descrição: ', e)
+        continue
 
     time.sleep(60)
