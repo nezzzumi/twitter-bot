@@ -61,4 +61,4 @@ while True:
         print('Erro ao atualizar descrição: ', e)
         continue
 
-    time.sleep(60)
+    time.sleep(90)
