@@ -61,4 +61,4 @@ while True:
         print(f'[{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}] Erro ao atualizar descrição: ', e)
         continue
 
-    time.sleep(os.getenv('INTERVAL'))
+    time.sleep(int(os.getenv('INTERVAL')))
