@@ -48,7 +48,7 @@ while True:
         new_description = re.sub(r'escutando .*', '', actual_description)
     else:
         print(
-            f'[{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}] escutando : '+actual_track)
+            f'[{datetime.now().strftime("%d/%m/%Y %H:%M:%S")}] escutando: '+actual_track)
 
         if re.search(r'escutando .*', actual_description):
             new_description = re.sub(
