@@ -66,4 +66,4 @@ while True:
         log('Erro ao atualizar descrição: ' + e)
         continue
 
-    time.sleep(int(os.getenv('INTERVAL')))
+    time.sleep(int(os.getenv('BOT_INTERVAL')))
