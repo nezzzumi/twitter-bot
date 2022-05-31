@@ -57,9 +57,9 @@ while True:
 
         if re.search(r'escutando .*', actual_description):
             new_description = re.sub(
-                r'escutando .*', 'escutando  '+actual_track, actual_description)
+                r'escutando .*', 'escutando '+actual_track, actual_description)
         else:
-            new_description = actual_description.strip() + '\n\nescutando  ' + actual_track
+            new_description = actual_description.strip() + '\n\nescutando ' + actual_track
     try:
         api.update_profile(description=new_description)
     except Exception as e:
