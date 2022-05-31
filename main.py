@@ -37,7 +37,7 @@ while True:
         actual_track = get_current_song(
             os.getenv('LASTFM_USER'), os.getenv('LASTFM_API_KEY'))
     except Exception as e:
-        log('Erro ao buscar música atual: ' + e)
+        log('Erro ao buscar música atual: ' + str(e))
         continue
 
     if actual_track == last_track:
@@ -63,7 +63,7 @@ while True:
     try:
         api.update_profile(description=new_description)
     except Exception as e:
-        log('Erro ao atualizar descrição: ' + e)
+        log('Erro ao atualizar descrição: ' + str(e))
         continue
 
     time.sleep(int(os.getenv('BOT_INTERVAL')))
